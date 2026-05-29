@@ -1,0 +1,133 @@
+.leaflet-contour-panel {
+    pointer-events: auto;
+    font: 12px/1.5 "Helvetica Neue", Arial, sans-serif;
+    background: #fff;
+    position: absolute;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+    border-radius: 4px;
+    min-width: 220px;
+}
+.leaflet-contour-panel .lc-header {
+    background: #2f9de2;
+    color: #fff;
+    padding: 6px 10px;
+    border-radius: 4px 4px 0 0;
+    font-weight: bold;
+    font-size: 13px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.leaflet-contour-panel .lc-header .lc-close {
+    border: none;
+    background: none;
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    padding: 0 4px;
+}
+.leaflet-contour-panel .lc-body {
+    padding: 8px 10px;
+    max-height: 400px;
+    overflow-y: auto;
+}
+.leaflet-contour-panel .lc-section {
+    margin-bottom: 6px;
+}
+.leaflet-contour-panel .lc-section label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 2px;
+    color: #333;
+}
+.leaflet-contour-panel .lc-section select,
+.leaflet-contour-panel .lc-section input[type=text] {
+    width: 100%;
+    padding: 3px 4px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    font-size: 12px;
+    box-sizing: border-box;
+}
+.leaflet-contour-panel .lc-section input[type=file] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    overflow: hidden;
+}
+.leaflet-contour-panel .lc-btn {
+    display: block;
+    width: 100%;
+    padding: 6px;
+    margin: 4px 0;
+    background: #2f9de2;
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    font-size: 13px;
+    cursor: pointer;
+    text-align: center;
+}
+.leaflet-contour-panel .lc-btn:hover {
+    background: #2580bb;
+}
+.leaflet-contour-panel .lc-btn-file {
+    background: #888;
+}
+.leaflet-contour-panel .lc-btn-file:hover {
+    background: #666;
+}
+.leaflet-contour-panel .lc-filename {
+    display: block;
+    font-size: 11px;
+    color: #888;
+    margin-top: 2px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.leaflet-contour-panel .lc-legend {
+    margin-top: 6px;
+    padding: 4px 6px;
+    background: #f5f5f5;
+    border-radius: 3px;
+    font-size: 11px;
+    line-height: 20px;
+}
+.leaflet-contour-panel .lc-legend i {
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 4px;
+    vertical-align: middle;
+    border-radius: 2px;
+}
+.leaflet-contour-panel .lc-legend-title {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 2px;
+}
+.leaflet-contour-panel .lc-status {
+    padding: 4px 0;
+    font-size: 11px;
+    color: #666;
+    text-align: center;
+}
+a.leaflet-contour-button {
+    background: #fff;
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    line-height: 30px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    cursor: pointer;
+}
+a.leaflet-contour-button:hover {
+    background: #f4f4f4;
+}

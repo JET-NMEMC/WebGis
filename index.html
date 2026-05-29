@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+  <meta charset="utf-8">
+  <title>WebGIS 等值线图渲染系统</title>
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="src/styles/webgis.css" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+  <link rel="stylesheet" href="public/lib/Leaflet.CartoGraticule.css" />
+  <link rel="stylesheet" href="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.css" />
+  <link rel="stylesheet" href="public/lib/L.Control.Locate.min.css" />
+  <link rel="stylesheet" href="src/styles/leaflet-contour.css" />
+  <link rel="stylesheet" href="src/styles/leaflet-importer.css" />
+  <link rel="stylesheet" href="src/styles/leaflet-exporter.css" />
+
+  <!-- Third-party libraries -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.min.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+    integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
+  <script src="https://unpkg.com/@turf/turf@6.5.0/turf.min.js"></script>
+  <script src="https://unpkg.com/@geoman-io/leaflet-geoman-free@latest/dist/leaflet-geoman.js"></script>
+  <script src="public/lib/jszip.min.js"></script>
+  <script src="public/lib/GeoShape.js"></script>
+  <script src="public/lib/gcoord.js"></script>
+  <script src="public/lib/L.KML.js"></script>
+  <script src="public/lib/Tokml.js"></script>
+  <script src="public/lib/leaflet.latlng-graticule.js"></script>
+  <script src="public/lib/Leaflet.CartoGraticule.js"></script>
+  <script src="public/lib/L.Control.Locate.min.js"></script>
+</head>
+
+<body>
+  <div><canvas id="mycanvas" style="display:none;"></canvas></div>
+  <div id="map" class="map"></div>
+
+
+  <div id="ShowDiv" name="ShowDiv"></div>
+
+  <!-- Application modules -->
+  <script src="src/utils/wgis.js"></script>
+  <script src="src/core/kriging.js"></script>
+  <script src="src/map/map.js"></script>
+  <script src="src/map/Leaflet.Contour.js"></script>
+  <script src="src/map/Leaflet.Importer.js"></script>
+  <script src="src/map/Leaflet.Exporter.js"></script>
+  <script src="src/ui/ui.js"></script>
+  <script src="src/ui/app.js"></script>
+</body>
+
+</html>

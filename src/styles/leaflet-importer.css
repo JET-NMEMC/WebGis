@@ -1,0 +1,148 @@
+.leaflet-importer-panel {
+    pointer-events: auto;
+    font: 12px/1.5 "Helvetica Neue", Arial, sans-serif;
+    background: #fff;
+    position: absolute;
+    width: 340px;
+    max-height: 520px;
+    overflow-y: auto;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+    border-radius: 4px;
+    z-index: 1000;
+    display: none;
+}
+.leaflet-importer-panel .li-header {
+    background: #f5f5f5;
+    border-bottom: 1px solid #ccc;
+    padding: 6px 10px;
+    font-weight: bold;
+    cursor: move;
+    border-radius: 4px 4px 0 0;
+}
+.leaflet-importer-panel .li-close {
+    float: right;
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #999;
+    padding: 0;
+    line-height: 1;
+}
+.leaflet-importer-panel .li-close:hover {
+    color: #333;
+}
+.leaflet-importer-panel .li-body {
+    padding: 8px 10px;
+}
+.leaflet-importer-panel .li-section {
+    margin-bottom: 10px;
+}
+.leaflet-importer-panel .li-section-title {
+    font-weight: bold;
+    margin-bottom: 4px;
+    font-size: 13px;
+    color: #555;
+}
+.leaflet-importer-panel .li-dropzone {
+    border: 2px dashed #ccc;
+    padding: 16px;
+    text-align: center;
+    color: #999;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: border-color 0.2s, background 0.2s;
+}
+.leaflet-importer-panel .li-dropzone:hover,
+.leaflet-importer-panel .li-dropzone.dragover {
+    border-color: #2196F3;
+    background: #e3f2fd;
+    color: #333;
+}
+.leaflet-importer-panel .li-dropzone-icon {
+    font-size: 20px;
+    display: block;
+    margin-bottom: 4px;
+}
+.leaflet-importer-panel .li-filename {
+    display: block;
+    margin-top: 4px;
+    font-size: 11px;
+    color: #2196F3;
+}
+.leaflet-importer-panel .li-row {
+    display: flex;
+    gap: 6px;
+    align-items: center;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+}
+.leaflet-importer-panel .li-row label {
+    font-size: 12px;
+    white-space: nowrap;
+    min-width: 30px;
+}
+.leaflet-importer-panel .li-row input[type=text] {
+    width: 80px;
+    height: 22px;
+    font-size: 12px;
+    padding: 1px 4px;
+}
+.leaflet-importer-panel .li-row input[type=color] {
+    width: 32px;
+    height: 22px;
+    padding: 0;
+    border: 1px solid #ccc;
+}
+.leaflet-importer-panel .li-textarea {
+    width: 100%;
+    height: 160px;
+    font-size: 11px;
+    font-family: Consolas, monospace;
+    resize: vertical;
+    box-sizing: border-box;
+    padding: 4px;
+    margin-bottom: 4px;
+}
+.leaflet-importer-panel .li-btn-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+}
+.leaflet-importer-panel .li-btn {
+    font-size: 11px;
+    padding: 3px 8px;
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 3px;
+    cursor: pointer;
+}
+.leaflet-importer-panel .li-btn:hover {
+    background: #f0f0f0;
+}
+.leaflet-importer-panel .li-btn-primary {
+    background: #2196F3;
+    color: #fff;
+    border-color: #1976D2;
+}
+.leaflet-importer-panel .li-btn-primary:hover {
+    background: #1976D2;
+}
+a.leaflet-importer-button {
+    background: #fff;
+    border-bottom: 2px solid #ccc;
+    width: 30px;
+    height: 30px;
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 16px;
+    line-height: 30px;
+    border-radius: 4px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.4);
+}
+a.leaflet-importer-button:hover {
+    background: #f4f4f4;
+}
