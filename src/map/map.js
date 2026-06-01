@@ -41,6 +41,19 @@
       return { lng: lng + dLng, lat: lat + dLat };
     }
 
+    // WGS84 ellipsoidal Mercator -> spherical Mercator lat correction
+    // Tile rendered with WGS84 ellipsoid (e=0.081819); viewer interprets as sphere.
+    // Shift center south so container shifts north, compensating southward offset:
+    //   gd⁻¹(φ_修正) = gd⁻¹(φ_地图) - e·atanh(e·sin(φ_地图))
+    this.gps84_To_wgs84Mercator = function (lng, lat) {
+      var e = 0.0818191908426;
+      var phi = lat * Math.PI / 180;
+      var sinp = Math.sin(phi);
+      var gdinv = Math.log(Math.tan(Math.PI / 4 + phi / 2));
+      var corr = e * 0.5 * Math.log((1 + e * sinp) / (1 - e * sinp));
+      var phi2 = 2 * Math.atan(Math.exp(gdinv - corr)) - Math.PI / 2;
+      return { lng: lng, lat: phi2 * 180 / Math.PI };
+    };
     this.bd09_To_gps84 = function (lng, lat) {
       var gcj02 = this.bd09_To_gcj02(lng, lat);
       return this.gcj02_To_gps84(gcj02.lng, gcj02.lat);
@@ -83,6 +96,8 @@
           center = L.coordConver().gps84_To_gcj02(_center.lng, _center.lat);
         } else if (this.options.corrdType === 'bd09') {
           center = L.coordConver().gps84_To_bd09(_center.lng, _center.lat);
+        } else if (this.options.corrdType === 'WGS84Mercator') {
+          center = L.coordConver().gps84_To_wgs84Mercator(_center.lng, _center.lat);
         }
       }
       var scale = this._map.getZoomScale(zoom, level.zoom),
@@ -101,6 +116,8 @@
           center = L.coordConver().gps84_To_gcj02(_center.lng, _center.lat);
         } else if (this.options.corrdType === 'bd09') {
           center = L.coordConver().gps84_To_bd09(_center.lng, _center.lat);
+        } else if (this.options.corrdType === 'WGS84Mercator') {
+          center = L.coordConver().gps84_To_wgs84Mercator(_center.lng, _center.lat);
         }
       }
       var map = this._map,
@@ -155,16 +172,18 @@
       attribution: '&copy; 高德地图'
     });
 
-    var GoogleMap2 = L.tileLayer('http://gdtc.shipxy.com/tile.g?z={z}&x={x}&y={y}', {
+    var GoogleMap_chuanxun = L.tileLayer('http://gdtc.shipxy.com/tile.g?z={z}&x={x}&y={y}', {
       attribution: '&copy; 船讯网 Google'
     });
 
     // --- Sea charts ---
     var haitu_chuanxun = L.tileLayer('http://m12.shipxy.com/tile.c?l=Na&m=o&x={x}&y={y}&z={z}', {
+      corrdType: 'WGS84Mercator',
       attribution: '&copy; 船讯网'
     });
 
     var haitu_chinaport = L.tileLayer('https://map.chinaports.com/map/getWorldSeaMap/{x}/{y}/{z}', {
+      corrdType: 'WGS84Mercator',
       attribution: '&copy; 中国港口网'
     });
 
@@ -215,7 +234,7 @@
       '影像 高德地球火星': gaode,
       '船讯海图': haitu_chuanxun,
       '港口海图': haitu_chinaport,
-      '谷歌地图 火星': GoogleMap2,
+      '谷歌地图 火星': GoogleMap_chuanxun,
       '智图暖色 火星': warm,
       '智图水系 火星': HydroMap,
       'Open Street': OpenStreetMap_Mapnik,
