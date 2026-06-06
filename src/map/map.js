@@ -260,11 +260,23 @@
         corrdType: 'wgs84'
       });
 
+    var meritRiver = L.vectorGrid.protobuf(
+      'https://mghydro.com/app/tiles/rivers?z={z}&x={x}&y={y}', {
+        attribution: '&copy; MERIT-Basins',
+        vectorTileLayerStyles: {
+          rivers: { color: '#1a73e8', weight: 1.5, opacity: 0.8 },
+          reaches: { color: '#1a73e8', weight: 1.5, opacity: 0.8 },
+          _default: function () { return { color: '#1a73e8', weight: 1, opacity: 0.6 }; }
+        },
+        maxZoom: 12
+      });
+
     var overlayLayers = {
       '天地图矢量注记': tianditu_cva,
       '天地图道路注记': tianditu_cta,
       'esri海洋注记': esriAnnotion,
-      '高德影像注记火星': gaodeAnnotion
+      '高德影像注记火星': gaodeAnnotion,
+      'MERIT-Basins River Reaches': meritRiver
     };
 
     // --- Create map ---
