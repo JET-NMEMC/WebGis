@@ -1,4 +1,10 @@
 /* Service Worker — proxy mghydro.com tile requests to bypass CORS */
+self.addEventListener('install', function () {
+  self.skipWaiting();
+});
+self.addEventListener('activate', function () {
+  self.clients.claim();
+});
 self.addEventListener('fetch', function (e) {
   var u = new URL(e.request.url);
   if (u.hostname !== 'mghydro.com') return;
